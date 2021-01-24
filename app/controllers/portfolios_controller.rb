@@ -32,6 +32,13 @@ class PortfoliosController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @portfolio_item.destroy
+    respond_to do |format|
+      format.html { redirect_to portfolios_path, notice: "Portfolio Item was successfully destroyed." }
+    end
+  end
   private
 
     def set_portfolio_item
